@@ -8,13 +8,7 @@ y1 = [0:res:20]';
 c1 = zeros(length(x1),length(y1));
 for i = 1:length(x1)
   for j = 1:length(y1)
-    pA = n_A*mvnpdf([x1(i);y1(j)], u_A, S_A);
-    pB = n_B*mvnpdf([x1(i);y1(j)], u_B, S_B);
-    if pA > pB
-      c1(i,j) = 1;
-    else
-      c1(i,j) = 2;
-    end
+    c1(i,j) = map([x1(i);y1(j)], n_A, u_A, S_A, n_B, u_B, S_B);
   end
 end
 % Add the class boundary to figure 1
@@ -32,11 +26,7 @@ pdfD = zeros(size(c2));
 pdfE = zeros(size(c2));
 for i = 1:length(x2)
   for j = 1:length(y2)
-    pC = n_C*mvnpdf([x2(i);y2(j)], u_C, S_C);
-    pD = n_D*mvnpdf([x2(i);y2(j)], u_D, S_D);
-    pE = n_E*mvnpdf([x2(i);y2(j)], u_E, S_E);
-    [m, class] = max([pC pD pE]);
-    c2(i,j) = class;
+    c2(i,j) = map([x2(i);y2(j)], n_C, u_C, S_C, n_D, u_D, S_D, n_E, u_E, S_E);
   end
 end
 % Add the class boundary to figure 2
