@@ -1,10 +1,7 @@
 % Load class statistics
-classes
-
+gen_classes
 
 % Show classes A and B
-x_a = gen_class(u_A, S_A, n_A);
-x_b = gen_class(u_B, S_B, n_B);
 figure(1);
 clf();
 hold on
@@ -15,9 +12,6 @@ plot_ellipse(u_B, S_B, 'k');
 hold off
 
 % Show classes C, D, and E
-x_c = gen_class(u_C, S_C, n_C);
-x_d = gen_class(u_D, S_D, n_D);
-x_e = gen_class(u_E, S_E, n_E);
 figure(2);
 clf();
 hold on
