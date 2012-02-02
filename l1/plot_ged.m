@@ -7,13 +7,7 @@ y1 = [0:res:20]';
 c1 = zeros(length(x1),length(y1));
 for i = 1:length(x1)
   for j = 1:length(y1)
-    distA = ([x1(i);y1(j)]-u_A)' * inv(S_A) * ([x1(i);y1(j)]-u_A);
-    distB = ([x1(i);y1(j)]-u_B)' * inv(S_B) * ([x1(i);y1(j)]-u_B);
-    if distA < distB
-      c1(i,j) = 1;
-    else
-      c1(i,j) = 2;
-    end
+    c1(i,j) = ged([x1(i);y1(j)], u_A, S_A, u_B, S_B);
   end
 end
 % Add the class boundary to figure 1
@@ -28,11 +22,7 @@ y2 = [-10:res:35]';
 c2 = zeros(length(x2), length(y2));
 for i = 1:length(x2)
   for j = 1:length(y2)
-    distC = ([x2(i);y2(j)]-u_C)' * inv(S_C) * ([x2(i);y2(j)]-u_C);
-    distD = ([x2(i);y2(j)]-u_D)' * inv(S_D) * ([x2(i);y2(j)]-u_D);
-    distE = ([x2(i);y2(j)]-u_E)' * inv(S_E) * ([x2(i);y2(j)]-u_E);
-    [m, class] = min([distC distD distE]);
-    c2(i,j) = class;
+    c2(i,j) = ged([x2(i);y2(j)], u_C, S_C, u_D, S_D, u_E, S_E);
   end
 end
 % Add the class boundary to figure 2
