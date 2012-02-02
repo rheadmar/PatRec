@@ -1,10 +1,6 @@
 % Computes MAP classificatio maps from data
-res = 0.5;  % classification map resolution
-
 
 % Map classifications for classes A and B
-x1 = [-5:res:20]';
-y1 = [0:res:20]';
 c1 = zeros(length(x1),length(y1));
 for i = 1:length(x1)
   for j = 1:length(y1)
@@ -18,8 +14,6 @@ contour(x1,y1,c1',[1.5],'c');
 hold off
 
 % Map classifications for classes C, D, and E
-x2 = [-5:res:25]';
-y2 = [-10:res:35]';
 c2 = zeros(length(x2), length(y2));
 pdfC = zeros(size(c2));
 pdfD = zeros(size(c2));
