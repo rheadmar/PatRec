@@ -1,7 +1,7 @@
 % Computes MED classification maps from class data
 classes
 res = 0.25;
-CP=1;
+CP=5;
 
 for i = 1:length(x1)
   for j = 1:length(y1)
@@ -15,7 +15,7 @@ end
 % Add the class boundary to figure 1
 figure(1);
 hold on
-contour(x1,y1,c1',[1.5],'k');
+contour(x1,y1,c1',[1.5],'c');
 hold off
 
 % Map classifications for classes C, D, and E
@@ -32,5 +32,5 @@ end
 % Add the class boundary to figure 2
 figure(2);
 hold on
-contour(x2,y2,c2',[1.5 2.5],'k');
+contour(x2,y2,c2',[1.5 2.5],'c');
 hold off

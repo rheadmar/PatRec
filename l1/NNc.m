@@ -6,7 +6,6 @@ function R = NNc( a_train , a ,n)
 % n       - The number of points to use in classification
 %
 % R The average distance of the nearest N points.
-
 for i=1:length(a_train)
    y(i)=([a_train(1,i),a_train(2,i)]-a) * ([a_train(1,i),a_train(2,i)]-a)';
 end

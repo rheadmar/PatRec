@@ -12,6 +12,7 @@ end
 figure(1);
 hold on
 contour(x1,y1,c1',[1.5],'m');
+% legend('MED');
 hold off
 
 % Map classifications for classes C, D, and E
@@ -25,4 +26,5 @@ end
 figure(2);
 hold on
 contour(x2,y2,c2',[1.5 2.5],'m');
+% legend('MED');
 hold off
